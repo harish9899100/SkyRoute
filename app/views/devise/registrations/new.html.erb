@@ -284,7 +284,9 @@
 
         <!-- Google OAuth button -->
         <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post,
-              form_class: "google-btn-form mb-6" do %>
+              form_class: "google-btn-form mb-6",
+              class: "w-full bg-transparent border-none p-0 cursor-pointer",
+              data: { turbo: false } do %>
           <div class="google-btn flex items-center justify-center gap-3 w-full rounded-xl py-3 px-4">
             <svg width="20" height="20" viewBox="0 0 20 20">
               <path d="M19.6 10.23c0-.68-.06-1.36-.18-2H10v3.8h5.4a4.6 4.6 0 01-2 3.02v2.5h3.22c1.89-1.74 2.98-4.3 2.98-7.32z" fill="#4285F4"/>
