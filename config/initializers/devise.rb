@@ -271,6 +271,14 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
+  config.omniauth :google_oauth2, 
+    ENV['GOOGLE_CLIENT_ID'], 
+    ENV['GOOGLE_CLIENT_SECRET'], 
+    {
+      scope: 'email,profile',
+      prompt: 'select_account'
+    }
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
@@ -313,4 +321,10 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+  Devise.setup do |config|
+  config.omniauth :google_oauth2,
+                  ENV["GOOGLE_CLIENT_ID"],
+                  ENV["GOOGLE_CLIENT_SECRET"],
+                  {}
+  end
 end

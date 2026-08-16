@@ -20,6 +20,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      # Google oauth
+      t.string :provider
+      t.string :uid
 
       # Confirmable
       t.string   :confirmation_token
@@ -41,6 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
+    add_index :users, :provider
+    add_index :users, :uid
     # add_index :users, :unlock_token,         unique: true
   end
 end
